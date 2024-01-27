@@ -23,6 +23,12 @@ export default function TextForm(props) {
       navigator.clipboard.writeText(text.value);
   }
 
+  // Remove to Extra Spaces 
+  const handleExtraSpaces = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "))
+  } 
+
     const handleonchange = (event)=>{
         // console.log("on change");
         setText(event.target.value)
@@ -39,7 +45,7 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to LowerCase</button>
         <button className="btn btn-primary mx-2" onClick={handleClearClick}>Clear Text</button>
         <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy Text</button>
-        <button className="btn btn-primary mx-2" onClick={handleCopy}>Remove Extra spaces</button>
+        <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra spaces</button>
 
     </div>
     <div className="container my-3"></div>
